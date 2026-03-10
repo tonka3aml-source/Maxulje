@@ -4,6 +4,7 @@ import Loader from "../pages/Loader";
 import "./Blog.css";
 import ReactPaginate from "react-paginate";
 import ScrollToTop from "../components/ScrollToTop";
+
 const Blog = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -22,7 +23,6 @@ const Blog = () => {
       .then((response) => {
         const totalPages = response.headers.get("X-WP-TotalPages");
         setPageCount(Number(totalPages));
-
         return response.json();
       })
       .then((data) => {
@@ -47,30 +47,29 @@ const Blog = () => {
                 post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
               return (
-                <div key={post.id} className="col-md-4 mb-4 blog-post">
-                  {image && (
+                <div key={post.id} className="col-md-4 mb-4 d-flex">
+                  <div className="blog-post">
+                    {image && (
+                      <Link to={`/blog/${post.slug}`}>
+                        <img src={image} alt={post.title.rendered} />
+                      </Link>
+                    )}
+
                     <Link to={`/blog/${post.slug}`}>
-                      <img
-                        src={image}
-                        className="mb-3"
-                        alt={post.title.rendered}
+                      <h2
+                        dangerouslySetInnerHTML={{
+                          __html: post.title.rendered,
+                        }}
                       />
                     </Link>
-                  )}
 
-                  <Link to={`/blog/${post.slug}`}>
-                    <h2
+                    <div
+                      className="excerpt"
                       dangerouslySetInnerHTML={{
-                        __html: post.title.rendered,
+                        __html: post.excerpt.rendered,
                       }}
                     />
-                  </Link>
-
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: post.excerpt.rendered,
-                    }}
-                  />
+                  </div>
                 </div>
               );
             })}
@@ -86,8 +85,7 @@ const Blog = () => {
               pageRangeDisplayed={2}
               onPageChange={(e) => {
                 setCurrentPage(e.selected);
-                setPosts([]);
-                ScrollToTop();
+                window.scrollTo(0, 0);
               }}
               containerClassName={"pagination"}
               pageClassName={"page-item"}

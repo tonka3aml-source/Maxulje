@@ -27,7 +27,9 @@ const Naslovnica = () => {
         <div className="hero-content">
           <h2 className="hero-subtitle">Snaga iz zemlje</h2>
           <h1>S ljubavlju iz našeg podneblja.</h1>
-          <button className="btn">Naruči</button>
+          <Link to="/proizvodi" className="btn">
+            Naruči
+          </Link>
         </div>
       </div>
 
