@@ -1,0 +1,80 @@
+.onama-page {
+  background-color: #d8c9a6; /* STARINSKA ŽUTA */
+  padding: 3.5rem 1.5rem;
+}
+
+/*HERO */
+
+.wp-block-cover {
+  position: relative;
+}
+
+.wp-block-cover h1 {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  width: 90%;
+  max-width: 900px;
+
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* TEKST (BLOG STIL) */
+.onama-page p {
+  max-width: 900px; /* malo šire */
+  margin: 0 auto 1.4rem auto; /* MANJI razmak */
+  line-height: 1.85;
+  font-size: 1.08rem;
+  color: #3f3a34;
+}
+
+.onama-page h2,
+.onama-page h3 {
+  max-width: 900px;
+  margin: 2.5rem auto 1rem auto; /* manje nego prije */
+  text-align: center;
+  letter-spacing: 0.8px;
+  color: #4f6b21;
+}
+
+.onama-page .wp-block-image {
+  max-width: 900px; /* VEĆE slike */
+  margin: 1.8rem auto; /* smanjen razmak */
+}
+
+.onama-page .wp-block-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: 18px; /* malo mekše */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+}
+
+@media (max-width: 768px) {
+  .onama-page {
+    padding: 2.2rem 1.2rem;
+  }
+
+  .wp-block-cover h1 {
+    top: 50%;
+    font-size: 1.8rem;
+    padding: 0 1rem;
+  }
+
+  .onama-page p {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .onama-page .wp-block-image {
+    max-width: 100%;
+    margin: 1.5rem auto;
+  }
+}

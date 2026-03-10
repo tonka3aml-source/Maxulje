@@ -1,0 +1,16 @@
+ {
+    "ime": "Antonia",
+    "prezime" : "Majdandžić",
+    "godine" : 46,
+    "vozacka" : true,
+    "vjestine" : ["HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ],
+    "adresa" : {
+    "ulica" : "Pirinova 23",
+    "grad" : "Zagreb",
+    "pbroj" : 10040
+    }
+  }

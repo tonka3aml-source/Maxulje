@@ -1,0 +1,77 @@
+.kosarica {
+  min-height: 70vh;
+  margin-top: 140px;
+  padding: 80px 30px 120px 30px;
+  background-color: #d8c9a6;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.kosarica h1 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 38px;
+  color: #2e3d1f;
+  letter-spacing: 1px;
+}
+
+.kosarica-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.kosarica-item h3 {
+  margin: 0;
+  color: #2e3d1f;
+}
+
+.kosarica-item p {
+  margin: 5px 0;
+  color: #444;
+}
+
+.kosarica-total {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.kosarica-total h2 {
+  color: #2e3d1f;
+  font-size: 26px;
+}
+
+.checkout-btn {
+  margin-top: 30px;
+  padding: 14px 25px;
+  background-color: #6b8e23;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: block;
+  margin-left: auto;
+}
+
+.checkout-btn:hover {
+  background-color: #556b1f;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.kosarica {
+  min-height: 60vh;
+  margin: 120px auto 200px auto;
+  padding: 60px 30px;
+  background-color: #d8c9a6;
+  max-width: 900px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
