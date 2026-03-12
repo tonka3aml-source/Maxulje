@@ -1,75 +1,169 @@
 .narudzba {
   min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 100px 20px;
-  background-color: #d8c9a6;
+  margin: 140px auto 160px auto;
+  padding: 70px 60px;
+  background: linear-gradient(180deg, #d8c9a6, #d2c097);
+  max-width: 850px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  position: relative;
+}
+
+/* vintage inner border */
+.narudzba::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px dashed rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  pointer-events: none;
 }
 
 .narudzba h1 {
+  text-align: center;
+  margin-bottom: 45px;
+  font-size: 38px;
+  color: #2e3d1f;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/*PREGLED KOŠARICE*/
+
+.pregled {
   margin-bottom: 40px;
-  font-size: 36px;
-  color: #2e3d1f;
 }
-
-.narudzba form {
-  width: 100%;
-  max-width: 400px;
-}
-
-.narudzba form div {
-  margin-bottom: 20px;
+.pregled p {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px 0;
+  font-size: 25px;
 }
 
-.narudzba label {
-  margin-bottom: 5px;
-  font-weight: 600;
+.pregled h3 {
+  margin-top: 15px;
+  font-size: 26px;
   color: #2e3d1f;
 }
 
-.narudzba input {
+/*FORMA*/
+
+.form-grupa {
+  margin-bottom: 22px;
+}
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 22px;
+}
+
+input {
+  width: 100%;
+  max-width: 360px;
   padding: 10px;
-  border: 1px solid #b8a87f;
-  border-radius: 4px;
-  background-color: #efe5c9;
+  background: #d9cfb2;
+  border: 1px solid #9aa27b;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(70, 99, 32, 0.25);
+  font-size: 20px;
+  color: #2e3d1f;
 }
 
-.narudzba input:focus {
+input:focus {
   outline: none;
-  border-color: #6b8e23;
+  border-color: #466320;
+  box-shadow: 0 0 6px rgba(70, 99, 32, 0.45);
 }
 
-.narudzba button {
-  margin-top: 10px;
-  padding: 12px;
-  background-color: #6b8e23;
+.placanje {
+  margin-top: 30px;
+}
+
+.radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.radio input {
+  width: auto;
+  box-shadow: none;
+}
+
+.iban-info {
+  margin-top: 16px;
+  padding: 20px;
+  background: #f4ecd4;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  max-width: 420px;
+}
+
+.iban-info p {
+  margin: 6px 0;
+}
+
+button {
+  margin-top: 35px;
+  padding: 16px 30px;
+  background: linear-gradient(180deg, #6b8e23, #556b1f);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
+  display: block;
+  margin-left: auto;
   transition: 0.3s;
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.narudzba button:hover {
-  background-color: #556b1f;
+button:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(107, 142, 35, 0.35);
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
+/*   RESPONSIVE */
+
+@media (max-width: 768px) {
+  .narudzba {
+    padding: 50px 30px;
+
+    margin: 120px 15px 140px 15px;
+  }
+
+  .narudzba h1 {
+    font-size: 32px;
+  }
+
+  input {
+    max-width: 100%;
+  }
+
+  button {
+    width: 100%;
+  }
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
+@media (max-width: 480px) {
+  .narudzba {
+    padding: 40px 20px;
+  }
 
-main {
-  flex: 1;
+  .narudzba h1 {
+    font-size: 28px;
+  }
+
+  .pregled p {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

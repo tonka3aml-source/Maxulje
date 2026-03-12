@@ -13,29 +13,32 @@ import Kosarica from "./pages/Kosarica";
 import BlogSingle from "./pages/BlogSingle";
 import Kontakt from "./pages/Kontakt";
 import Narudzba from "./pages/Narudzba";
+import { CartProvider } from "./components/CartContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Nav />
+    <CartProvider>
+      <BrowserRouter>
+        <Nav />
 
-      <main>
-        <Routes>
-          <Route path="/" element={<Naslovnica />} />
-          <Route path="/onama" element={<Onama />} />
-          <Route path="/proizvodi" element={<Proizvodi />} />
+        <main>
+          <Routes>
+            <Route path="/" element={<Naslovnica />} />
+            <Route path="/onama" element={<Onama />} />
+            <Route path="/proizvodi" element={<Proizvodi />} />
 
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogSingle />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogSingle />} />
 
-          <Route path="/kosarica" element={<Kosarica />} />
-          <Route path="/kontakt" element={<Kontakt />} />
-          <Route path="/narudzba" element={<Narudzba />} />
-        </Routes>
-      </main>
+            <Route path="/kosarica" element={<Kosarica />} />
+            <Route path="/kontakt" element={<Kontakt />} />
+            <Route path="/narudzba" element={<Narudzba />} />
+          </Routes>
+        </main>
 
-      <Footer />
-    </BrowserRouter>
+        <Footer />
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

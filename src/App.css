@@ -110,8 +110,6 @@ p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* CARD*/
-
 .card {
   background: var(--paper);
   border: 4px solid var(--paper-border);
@@ -140,7 +138,6 @@ p {
 }
 
 /* FIXni gumbi - SOCIAL */
-
 .social-icons-fixed {
   position: fixed;
   bottom: 22px;
@@ -169,7 +166,6 @@ p {
 }
 
 /* FOOTER */
-
 .footer {
   background: linear-gradient(90deg, #2e3b1f, #3a5126);
   color: var(--paper);
@@ -243,7 +239,6 @@ p {
 }
 
 /*PAGINATION */
-
 .pagination {
   display: flex;
   justify-content: center;

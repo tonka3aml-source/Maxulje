@@ -15,19 +15,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 60px 50px;
-
   text-align: center;
   position: relative;
 }
 
 /* GRANČICA */
-.kontakt-page::after {
+.kontakt-left::before {
   content: "🌿";
   position: absolute;
-  left: 80px;
-  top: 3%;
+  left: 40px;
+  top: 60px;
   font-size: 105px;
   color: #3f561f;
   opacity: 0.6;
@@ -44,7 +42,6 @@
   50% {
     transform: rotate(-9deg) translateY(-6px);
   }
-
   100% {
     transform: rotate(-12deg) translateY(0);
   }
@@ -54,6 +51,7 @@
 .kontakt-text {
   max-width: 620px;
   margin-bottom: 35px;
+  padding-left: 110px;
 }
 
 .kontakt-text p {
@@ -63,7 +61,6 @@
 }
 
 /* BUTTON */
-
 .kontakt-text a {
   display: inline-block;
   margin-top: 20px;
@@ -75,7 +72,6 @@
   font-size: 15px;
   transition: 0.3s;
 }
-
 .kontakt-text a:hover {
   background: #495822;
 }
@@ -121,11 +117,9 @@
   cursor: pointer;
   transition: 0.3s;
 }
-
 .kontakt-form button:hover {
   background: #495822;
 }
-
 .kontakt-hero {
   display: flex;
   justify-content: center;

@@ -1,10 +1,15 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../components/CartContext";
 import "../pages/Nav.css";
 
 const Nav = () => {
   const location = useLocation();
   const [name, setName] = useState(null);
+
+  const { cart } = useContext(CartContext);
+
+  const brojProizvoda = cart.reduce((sum, item) => sum + item.kolicina, 0);
 
   useEffect(() => {
     const user = localStorage.getItem("username");
@@ -43,24 +48,28 @@ const Nav = () => {
                 O nama
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/proizvodi">
                 Proizvodi
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/blog">
                 Blog
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/kontakt">
                 Kontakt
               </Link>
             </li>
+
             <li className="nav-item">
               <Link className="nav-link" to="/kosarica">
-                🛒Košarica
+                🛒 Košarica ({brojProizvoda})
               </Link>
             </li>
           </ul>

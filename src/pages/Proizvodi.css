@@ -3,33 +3,51 @@
   background-color: #d8c8a6;
   background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 6px 6px;
-  padding: 8rem 0 3rem 0;
+  padding: 8rem 0 4rem 0;
   min-height: 100vh;
 }
 
-/* Ograničenje širine */
+/* širina stranice */
+
 .proizvodi > div {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+.uvod {
+  text-align: center;
+  margin-bottom: 90px;
+  font-family: Georgia, serif;
+}
+
+.uvod p {
+  margin: 8px 0;
+}
+
+.uvod p:first-child {
+  font-size: 1.45rem;
+  font-weight: 700;
+}
+
+.uvod p:nth-child(2),
+.uvod p:nth-child(3) {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+/* GRID */
 .proizvodi .wp-block-columns {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 60px;
   row-gap: 100px;
-  margin: 0;
-}
-
-/* Razmak između redova */
-.proizvodi .wp-block-columns + .wp-block-columns {
-  margin-top: 120px;
 }
 
 /* KARTICA */
 .proizvodi .wp-block-column {
-  margin: 0;
+  position: relative;
+  overflow: hidden;
   background: #efe2c4;
   border-radius: 22px;
   padding: 2.5rem;
@@ -37,101 +55,207 @@
   flex-direction: column;
   min-height: 480px;
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+  animation: fadeIn 0.9s ease forwards;
 }
 
 .proizvodi .wp-block-column:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+}
+
+/* SHINE EFEKT */
+.proizvodi .wp-block-column::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.proizvodi .wp-block-column:hover::before {
+  left: 130%;
+  transition: all 0.9s ease;
 }
 
 /* SLIKE */
+.proizvodi .wp-block-image {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
 .proizvodi .wp-block-image img {
   width: 100%;
   height: 320px;
   object-fit: cover;
   border-radius: 18px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  transition: transform 0.5s ease;
+}
+
+.proizvodi .wp-block-column:hover img {
+  transform: scale(1.08);
 }
 
 /* NASLOV */
 .proizvodi h2 {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   text-align: center;
   margin-bottom: 1.2rem;
   color: #2f3d13;
   font-weight: 600;
+  font-family: Georgia, serif;
 }
 
-/* CIJENA */
-.proizvodi p {
+.cijena {
   font-weight: 700;
   text-align: center;
   margin-bottom: 3rem;
-  font-size: 1.5rem;
-  color: #2c2c2c;
+  font-size: 1.4rem;
 }
 
-/* GUMBI – ISTI KAO NASLOVNICA */
+/* GUMB */
 .proizvodi .wp-block-buttons {
   margin-top: auto;
   display: flex;
   justify-content: center;
 }
 
-/* PRAVI GUMB (Gutenberg link) */
 .proizvodi .wp-block-button__link {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 16px 42px;
-  min-width: 190px;
-
+  padding: 14px 40px;
+  min-width: 180px;
   border-radius: 6px;
-  background: var(--primary-dark);
-  color: var(--text-main);
-
-  font-size: 1.3rem;
+  background: #3e5a1a;
+  color: white;
+  font-size: 1.2rem;
   font-weight: 500;
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
 }
 
-/* hover */
 .proizvodi .wp-block-button__link:hover {
-  background: var(--primary);
+  background: #567a26;
   transform: translateY(-2px);
 }
 
-.logo-dno {
-  width: 100%;
-  max-width: 140px;
-  margin: 3rem auto 0;
-  display: block;
+.dostava {
+  text-align: center;
+  margin-top: 80px;
+  font-family: Georgia, serif;
 }
+
+.dostava strong {
+  font-size: 1.2rem;
+}
+
+.dostava p h1 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.slogan {
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  letter-spacing: 3px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+.logo-dno {
+  display: block;
+  margin: 40px auto;
+  width: 300px;
+
+  /*poboljšanje slike */
+  filter: contrast(120%) brightness(96%) saturate(105%);
+
+  /* glow iza loga */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 40%,
+    transparent 70%
+  );
+  padding: 10px;
+
+  /* lagana dubina */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.logo-dno:hover {
+  transform: scale(1.04);
+  filter: contrast(130%) brightness(98%) saturate(105%);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+/* FADE IN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cart-popup {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: #3e5a1a;
+  color: white;
+  padding: 16px 26px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  animation: popupFade 0.4s ease;
+  z-index: 999;
+}
+
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* RESPONSIVE */
 
 @media (max-width: 1100px) {
   .proizvodi .wp-block-columns {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 80px;
   }
 }
 
 @media (max-width: 768px) {
-  .proizvodi {
-    padding: 4rem 0 5rem 0;
-  }
-
   .proizvodi .wp-block-columns {
     grid-template-columns: 1fr;
-    row-gap: 60px;
   }
 
-  .proizvodi .wp-block-column {
-    min-height: auto;
+  .uvod {
+    margin-bottom: 60px;
   }
 }

@@ -1,102 +1,126 @@
+import { useEffect, useState, useContext } from "react";
+import Loader from "../pages/Loader";
 import "./Proizvodi.css";
+import { CartContext } from "../components/CartContext";
 
-const proizvodiData = [
-  {
-    id: 1,
-    naziv: "Proizvod",
-    cijena: "6€",
-    slika: "/img/staklenka025.jpeg",
-  },
-  {
-    id: 2,
-    naziv: "Staklenka 0.5l",
-    cijena: "10€",
-    slika: "/img/staklenka0.5l.png",
-  },
-  {
-    id: 3,
-    naziv: "Staklenka 1l",
-    cijena: "15€",
-    slika: "/img/staklenka1l.png",
-  },
-  {
-    id: 4,
-    naziv: "Poklon pakiranje 2x0.25l",
-    cijena: "10€",
-    slika: "/img/staklenkeduo250ml.jpeg",
-  },
-  {
-    id: 5,
-    naziv: "Poklon pakiranje 0.25l + 0.5l",
-    cijena: "15€",
-    slika: "/img/staklenkaduozel.png",
-  },
-  {
-    id: 6,
-    naziv: "Poklon pakiranje 0.25l",
-    cijena: "20€",
-    slika: "/img/staklenkaduozel.png",
-  },
-];
+function Proizvodi() {
+  const [proizvodi, setProizvodi] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [popup, setPopup] = useState("");
 
-const Proizvodi = () => {
+  const { addToCart: addToCartContext } = useContext(CartContext);
+
+  useEffect(() => {
+    async function fetchProizvodi() {
+      try {
+        const res = await fetch(
+          "https://front2.edukacija.online/backend/wp-json/wp/v2/proizvodi?_embed",
+        );
+
+        const data = await res.json();
+
+        setProizvodi(data);
+      } catch (err) {
+        console.log(err);
+      }
+
+      setLoading(false);
+    }
+
+    fetchProizvodi();
+  }, []);
+
+  /* ADD TO CART */
+
+  function addToCart(proizvod) {
+    addToCartContext({
+      id: proizvod.id,
+      naziv: proizvod.title.rendered,
+      cijena: proizvod.acf?.price || 0,
+      slika: proizvod._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "",
+    });
+
+    setPopup(proizvod.title.rendered);
+
+    setTimeout(() => {
+      setPopup("");
+    }, 2000);
+  }
+
+  if (loading) return <Loader />;
+
   return (
-    <div className="proizvodi">
+    <section className="proizvodi">
       <div>
-        {/* GORNJI TEKST */}
-        <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <h3 style={{ fontStyle: "italic", marginBottom: "1rem" }}>
-            Prirodno. Čisto. S našeg imanja.
-          </h3>
+        {/* UVOD */}
 
-          <p style={{ marginBottom: "0.5rem" }}>
-            Naš asortiman je mali, ali iskren.
-          </p>
+        <div className="uvod">
+          <p>Prirodno. Čisto. S našeg imanja.</p>
+
+          <p>Naš asortiman je mali, ali iskren.</p>
 
           <p>Sve što nudimo sami proizvodimo, punimo i pakiramo.</p>
         </div>
 
-        {/* PROIZVODI GRID */}
+        {/* GRID PROIZVODA */}
+
         <div className="wp-block-columns">
-          {proizvodiData.map((proizvod) => (
-            <div className="wp-block-column" key={proizvod.id}>
-              <figure className="wp-block-image">
-                <img src={proizvod.slika} alt={proizvod.naziv} />
-              </figure>
+          {proizvodi.map((p) => {
+            const naziv = p.title?.rendered || "";
 
-              <h2>{proizvod.naziv}</h2>
+            const slika =
+              p._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
 
-              <p>{proizvod.cijena}</p>
+            const cijena = p.acf?.price || "";
 
-              <div className="wp-block-buttons">
-                <div className="wp-block-button">
-                  <button className="wp-block-button__link">U košaricu</button>
+            return (
+              <div className="wp-block-column" key={p.id}>
+                <figure className="wp-block-image">
+                  {slika && <img src={slika} alt={naziv} />}
+                </figure>
+
+                <h2 dangerouslySetInnerHTML={{ __html: naziv }} />
+
+                <p className="cijena">{cijena} €</p>
+
+                <div className="wp-block-buttons">
+                  <button
+                    className="wp-block-button__link"
+                    onClick={() => addToCart(p)}
+                  >
+                    U košaricu
+                  </button>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* DONJI TEKST */}
-        <div style={{ textAlign: "center", marginTop: "6rem" }}>
+        {/* DOSTAVA */}
+
+        <div className="dostava">
           <p>
             <strong>Dostava i plaćanje:</strong>
           </p>
 
-          <p style={{ marginBottom: "3rem" }}>
+          <p>
             Dostavljamo po cijeloj Hrvatskoj. Plaćanje pouzećem ili uplatom na
             račun.
           </p>
 
-          <p style={{ fontStyle: "italic", marginBottom: "2rem" }}>
+          <p className="slogan">
             "Ako želite znati što stavljate na stol, ovo je za vas."
           </p>
 
-          <img src="/img/logo.png" alt="Logo" className="logo-dno" />
+          <img src="/img/logo.png" alt="logo" className="logo-dno" />
         </div>
       </div>
-    </div>
+
+      {/* POPUP */}
+
+      {popup && <div className="cart-popup">✓ Dodano u košaricu: {popup}</div>}
+    </section>
   );
-};
+}
 
 export default Proizvodi;
