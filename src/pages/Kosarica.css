@@ -2,243 +2,216 @@
   min-height: 70vh;
   margin: 140px auto 160px auto;
   padding: 70px 50px;
-  background: linear-gradient(180deg, #d8c9a6, #d2c097);
   max-width: 1000px;
+  background: linear-gradient(180deg, #d8c9a6, #d2c097);
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow:
     0 25px 55px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
-
-  animation: cartFade 0.6s ease;
   position: relative;
 }
-
-/* vintage inner border */
 
 .kosarica::after {
   content: "";
   position: absolute;
   inset: 8px;
-  border: 1px dashed rgba(0, 0, 0, 0.12);
+  border: 1px dashed rgba(0, 0, 0, 0.15);
   border-radius: 12px;
   pointer-events: none;
 }
-
-/* NASLOV */
 
 .kosarica h1 {
   text-align: center;
   margin-bottom: 50px;
   font-size: 38px;
   color: #2e3d1f;
-  letter-spacing: 1px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .kosarica-item {
   display: grid;
-  grid-template-columns:
-    1fr
-    120px
-    120px;
-  align-items: center;
+  grid-template-columns: 1fr auto;
+  align-items: start;
   padding: 26px 12px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  position: relative;
-  transition: all 0.3s ease;
-  column-gap: 20px;
+  gap: 20px;
+  transition: 0.25s;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 4px;
+}
+
+.kosarica-item:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  transform: scale(1.01);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
 .info {
-  max-width: 100%;
-}
-
-.qty {
-  justify-self: center;
-}
-
-/* hover efekt */
-.kosarica-item:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-radius: 8px;
-  padding-left: 18px;
-  padding-right: 18px;
-  transform: scale(1.01);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-}
-
-/* linija hover */
-.kosarica-item::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: #6b8e23;
-  transition: 0.35s;
-}
-
-.kosarica-item:hover::after {
-  width: 100%;
-}
-
-.kosarica-info {
-  max-width: 420px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .kosarica-item h3 {
   margin: 0;
   color: #2e3d1f;
   font-size: 20px;
-  line-height: 1.35;
-  word-break: break-word;
 }
 
 .kosarica-item p {
-  margin: 6px 0 0 0;
-  color: #4a4a4a;
+  margin-top: 6px;
   font-size: 14px;
-  opacity: 0.9;
+  color: #444;
 }
 
-/*KOLIČINA */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 10px;
+}
 
 .qty {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
-/* badge */
+.qty button,
 .qty span {
-  font-weight: 600;
-  font-size: 15px;
-  color: white;
-  background: #2e3d1f;
-  padding: 4px 10px;
-  border-radius: 20px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  width: 46px;
+  height: 46px;
+
+  display: grid;
+  place-items: center;
+  font-family: inherit;
+  line-height: 1;
 }
+
+/* minus plus */
 
 .qty button {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
   border: none;
+  border-radius: 8px;
+
   background: linear-gradient(180deg, #6b8e23, #556b1f);
   color: white;
-  font-size: 18px;
+  align-content: center;
+  justify-content: center;
+
+  font-size: 22px;
+  font-weight: 700;
+
   cursor: pointer;
-  transition: 0.25s;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+
+  transition: 0.2s;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .qty button:hover {
-  background: #556b1f;
   transform: scale(1.08);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+/* broj */
+
+.qty span {
+  background: #4c6335;
+  color: white;
+
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 17px;
+
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .remove-btn {
-  margin-left: 15px;
+  padding: 10px 18px;
+
   background: #9c3b2e;
   color: white;
+
   border: none;
-  border-radius: 6px;
-  padding: 7px 14px;
+  border-radius: 8px;
+
   cursor: pointer;
   transition: 0.25s;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .remove-btn:hover {
   background: #7f2e23;
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
 }
 
 .kosarica-total {
-  margin-top: 45px;
-  text-align: right;
+  margin-top: 40px;
   padding-top: 20px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
+  text-align: right;
 }
 
 .kosarica-total h2 {
-  color: #2e3d1f;
   font-size: 26px;
-  letter-spacing: 0.5px;
+  color: #2e3d1f;
 }
 
 .checkout-btn {
   margin-top: 30px;
   padding: 16px 30px;
+
   background: linear-gradient(180deg, #6b8e23, #556b1f);
+
   color: white;
   border: none;
   border-radius: 8px;
+
   font-size: 16px;
   cursor: pointer;
+
   display: block;
   margin-left: auto;
-  transition: 0.3s;
-  box-shadow:
-    0 6px 16px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  transition: 0.25s;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
 .checkout-btn:hover {
-  transform: translateY(-3px) scale(1.03);
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.3),
-    0 0 10px rgba(107, 142, 35, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
 }
 
-/* PRAZNA KOŠARICA*/
-
-.kosarica p {
-  color: #333;
-}
-
-/* ANIMACIJA*/
-
-@keyframes cartFade {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVE*/
-
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .kosarica {
     padding: 50px 25px;
     margin: 120px 15px 140px 15px;
   }
+
   .kosarica h1 {
     font-size: 32px;
   }
-  .kosarica-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+
+  .actions {
+    width: 100%;
+    justify-content: space-between;
   }
-  .qty {
-    margin-top: 6px;
-  }
+
   .kosarica-total {
     text-align: left;
   }
+
   .checkout-btn {
     width: 100%;
   }
@@ -248,11 +221,14 @@
   .kosarica {
     padding: 40px 20px;
   }
+
   .kosarica h1 {
     font-size: 28px;
   }
-  .qty button {
-    width: 30px;
-    height: 30px;
+
+  .qty button,
+  .qty span {
+    width: 42px;
+    height: 42px;
   }
 }

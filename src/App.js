@@ -18,7 +18,7 @@ import { CartProvider } from "./components/CartContext";
 function App() {
   return (
     <CartProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/amaj">
         <Nav />
 
         <main>

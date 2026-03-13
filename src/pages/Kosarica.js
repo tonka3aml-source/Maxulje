@@ -9,8 +9,6 @@ const Kosarica = () => {
 
   if (!cart) return <Loader />;
 
-  /* UKUPNA CIJENA */
-
   const ukupno = cart.reduce(
     (sum, item) => sum + item.cijena * item.kolicina,
     0,
@@ -24,22 +22,26 @@ const Kosarica = () => {
 
       {cart.map((item) => (
         <div className="kosarica-item" key={item.id}>
+          {/* LIJEVA STRANA */}
           <div className="info">
             <h3>{item.naziv.replace(/&#215;/g, "×")}</h3>
             <p>Cijena: {item.cijena} €</p>
           </div>
 
-          <div className="qty">
-            <button onClick={() => decrease(item.id)}>-</button>
+          {/* DESNA STRANA */}
+          <div className="actions">
+            <div className="qty">
+              <button onClick={() => decrease(item.id)}>-</button>
 
-            <span>{item.kolicina}</span>
+              <span>{item.kolicina}</span>
 
-            <button onClick={() => increase(item.id)}>+</button>
+              <button onClick={() => increase(item.id)}>+</button>
+            </div>
+
+            <button className="remove-btn" onClick={() => removeItem(item.id)}>
+              Ukloni
+            </button>
           </div>
-
-          <button className="remove-btn" onClick={() => removeItem(item.id)}>
-            Ukloni
-          </button>
         </div>
       ))}
 

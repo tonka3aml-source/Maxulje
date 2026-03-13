@@ -171,6 +171,8 @@ p {
   color: var(--paper);
   padding: 24px 0;
   border-top: 3px solid var(--primary);
+
+  margin-top: auto; /* FIX da footer ne skače */
 }
 
 .footer-container {
@@ -186,6 +188,11 @@ p {
 .footer-container p {
   font-size: 1.1rem;
   line-height: 1.2;
+}
+
+main {
+  flex: 1;
+  min-height: calc(100vh - 160px);
 }
 
 .footer-links {
@@ -267,6 +274,72 @@ p {
 .pagination .active .page-link {
   background: linear-gradient(135deg, var(--primary-dark), #2f3f14);
   color: var(--text-main);
+}
+
+/* =========================
+   CART FIX (Shopify style)
+   ========================= */
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+}
+
+.cart-item-info {
+  flex: 1;
+}
+
+/* kontrola količine */
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* minus plus */
+
+.cart-controls button {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+/* broj količine */
+
+.cart-controls span {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ukloni gumb */
+
+.cart-remove {
+  margin-left: 10px;
+}
+
+/* responsive */
+
+@media (max-width: 600px) {
+  .cart-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .cart-controls {
+    justify-content: flex-start;
+  }
 }
 
 /* RESPONSIVE */
