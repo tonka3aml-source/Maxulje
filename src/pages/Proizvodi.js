@@ -112,7 +112,11 @@ function Proizvodi() {
             "Ako želite znati što stavljate na stol, ovo je za vas."
           </p>
 
-          <img src="/img/logo.png" alt="logo" className="logo-dno" />
+          <img
+            src={process.env.PUBLIC_URL + "/img/logo.png"}
+            alt="logo"
+            className="logo-dno"
+          />
         </div>
       </div>
 

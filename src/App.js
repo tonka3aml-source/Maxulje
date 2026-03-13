@@ -14,6 +14,7 @@ import BlogSingle from "./pages/BlogSingle";
 import Kontakt from "./pages/Kontakt";
 import Narudzba from "./pages/Narudzba";
 import { CartProvider } from "./components/CartContext";
+import Success from "./components/Success";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/kosarica" element={<Kosarica />} />
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/narudzba" element={<Narudzba />} />
+            <Route path="/success" element={<Success />} />
           </Routes>
         </main>
 

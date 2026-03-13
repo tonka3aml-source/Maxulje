@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "./narudzba.css";
 import { CartContext } from "../components/CartContext";
 import Loader from "../pages/Loader";
+import Button from "../components/Button";
 
 const Narudzba = () => {
   const { cart, setCart } = useContext(CartContext);
   const navigate = useNavigate();
+
   const [placanje, setPlacanje] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -21,14 +23,16 @@ const Narudzba = () => {
     setLoading(true);
 
     setTimeout(() => {
-      alert("Narudžba je poslana!");
-
+      // očisti košaricu
       localStorage.removeItem("cart");
       setCart([]);
 
-      navigate("/");
+      // redirect na success stranicu
+      navigate("/success");
     }, 1200);
   };
+
+  if (loading) return <Loader />;
 
   return (
     <div className="narudzba">

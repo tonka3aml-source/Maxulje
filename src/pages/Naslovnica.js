@@ -3,6 +3,7 @@ import Loader from "../pages/Loader";
 import "./Naslovnica.css";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import Button from "../components/Button";
 
 const Naslovnica = () => {
   const [page, setPage] = useState(null);
@@ -27,9 +28,8 @@ const Naslovnica = () => {
         <div className="hero-content">
           <h2 className="hero-subtitle">Snaga iz zemlje</h2>
           <h1>S ljubavlju iz našeg podneblja.</h1>
-          <Link to="/proizvodi" className="btn">
-            Naruči
-          </Link>
+
+          <Button to="/proizvodi">Naruči</Button>
         </div>
       </div>
 
@@ -74,7 +74,7 @@ const Naslovnica = () => {
             <h3 className="product-title">Staklenka 0.25L</h3>
             <p className="product-price">6 €</p>
 
-            <button className="btn">U košaricu</button>
+            <Button>U košaricu</Button>
           </div>
 
           <div className="card">
@@ -87,7 +87,7 @@ const Naslovnica = () => {
             <h3 className="product-title">Staklenka 0.50 L</h3>
             <p className="product-price">10 €</p>
 
-            <button className="btn">U košaricu</button>
+            <Button>U košaricu</Button>
           </div>
 
           <div className="card">
@@ -100,38 +100,44 @@ const Naslovnica = () => {
             <h3 className="product-title">Poklon paket</h3>
             <p className="product-price">20 €</p>
 
-            <button className="btn">U košaricu</button>
+            <Button>U košaricu</Button>
           </div>
         </div>
       </section>
 
       {/* BLOG */}
-      <section class="blogs-section">
-        <div class="torn-divider"></div>
+      <section className="blogs-section">
+        <div className="torn-divider"></div>
 
-        <div class="blogs-container">
-          <h2 class="blogs-title">Blogovi</h2>
+        <div className="blogs-container">
+          <h2 className="blogs-title">Blogovi</h2>
 
-          <div class="blogs-grid">
+          <div className="blogs-grid">
             <Link
               to="/blog/nasa-berba-kako-izgleda-sezona-maslinarstva/"
-              class="blog-card"
+              className="blog-card"
             >
               <img src="img/blog10b.jpg" alt="" />
               <h3>Naša berba - Zlatna kap ulja</h3>
-              <span class="blog-btn">Pročitaj više</span>
+
+              <Button>Pročitaj više...</Button>
             </Link>
 
-            <Link to="/blog/kako-prepoznati-kvalitetu-ulja/" class="blog-card">
+            <Link
+              to="/blog/kako-prepoznati-kvalitetu-ulja/"
+              className="blog-card"
+            >
               <img src="img/blog7b.jpg" alt="" />
               <h3>Kako prepoznati kvalitetu ulja</h3>
-              <span class="blog-btn">Pročitaj više</span>
+
+              <Button>Pročitaj više...</Button>
             </Link>
 
             <Link to="/blog/recepti-sa-maslinovim-uljem" class="blog-card">
               <img src="img/blog3.jpg" alt="" />
               <h3>Recepti s Maslinovim Uljem</h3>
-              <span class="blog-btn">Pročitaj više</span>
+
+              <Button>Pročitaj više...</Button>
             </Link>
           </div>
         </div>

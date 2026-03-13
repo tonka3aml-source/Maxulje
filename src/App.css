@@ -1,21 +1,15 @@
-/* ROOT */
-
 :root {
   --primary: #7a9c3a;
   --primary-dark: #4f6b21;
   --primary-light: #b8d27a;
-
   --text-main: #f4f1e8;
   --text-dark: #1f2a16;
   --text-muted: #bdbdb0;
-
   --paper: #f4ead8;
   --paper-border: #d8cbb5;
-
   --gold-soft: #d4c28f;
 }
 
-/* RESET */
 *,
 *::before,
 *::after {
@@ -40,6 +34,7 @@ body {
 
 main {
   flex: 1;
+  min-height: calc(100vh - 160px);
 }
 
 img {
@@ -69,47 +64,7 @@ p {
   padding: 4rem 0;
 }
 
-/* BUTTON */
-
-.btn {
-  padding: 14px 35px;
-  border-radius: 6px;
-  background: var(--primary-dark);
-  color: var(--text-main);
-  font-size: 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn:hover {
-  background: var(--primary);
-  transform: translateY(-2px);
-}
-
-.btn-primary {
-  display: block;
-  margin: 30px auto;
-  padding: 16px 42px;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  color: #fff;
-  background-color: #6f8f72;
-  border: none;
-  border-radius: 40px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 240px;
-  text-align: center;
-}
-
-.btn-primary:hover {
-  background-color: #5b7560;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-}
-
+/* CARD */
 .card {
   background: var(--paper);
   border: 4px solid var(--paper-border);
@@ -137,7 +92,7 @@ p {
   font-size: 1.4rem;
 }
 
-/* FIXni gumbi - SOCIAL */
+/* FIXNI SOCIAL GUMBI */
 .social-icons-fixed {
   position: fixed;
   bottom: 22px;
@@ -171,8 +126,7 @@ p {
   color: var(--paper);
   padding: 24px 0;
   border-top: 3px solid var(--primary);
-
-  margin-top: auto; /* FIX da footer ne skače */
+  margin-top: auto;
 }
 
 .footer-container {
@@ -188,11 +142,7 @@ p {
 .footer-container p {
   font-size: 1.1rem;
   line-height: 1.2;
-}
-
-main {
-  flex: 1;
-  min-height: calc(100vh - 160px);
+  margin: 0;
 }
 
 .footer-links {
@@ -206,10 +156,6 @@ main {
   display: flex;
   align-items: center;
   gap: 30px;
-}
-
-.footer-container p {
-  margin: 0;
 }
 
 .footer-links a {
@@ -245,7 +191,8 @@ main {
   transform: translateY(-2px);
 }
 
-/*PAGINATION */
+/* PAGINATION */
+
 .pagination {
   display: flex;
   justify-content: center;
@@ -276,9 +223,7 @@ main {
   color: var(--text-main);
 }
 
-/* =========================
-   CART FIX (Shopify style)
-   ========================= */
+/* CART */
 
 .cart-item {
   display: flex;
@@ -292,15 +237,11 @@ main {
   flex: 1;
 }
 
-/* kontrola količine */
-
 .cart-controls {
   display: flex;
   align-items: center;
   gap: 8px;
 }
-
-/* minus plus */
 
 .cart-controls button {
   width: 28px;
@@ -311,8 +252,6 @@ main {
   border-radius: 4px;
 }
 
-/* broj količine */
-
 .cart-controls span {
   min-width: 28px;
   text-align: center;
@@ -322,24 +261,8 @@ main {
   justify-content: center;
 }
 
-/* ukloni gumb */
-
 .cart-remove {
   margin-left: 10px;
-}
-
-/* responsive */
-
-@media (max-width: 600px) {
-  .cart-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .cart-controls {
-    justify-content: flex-start;
-  }
 }
 
 /* RESPONSIVE */

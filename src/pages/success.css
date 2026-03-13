@@ -1,0 +1,37 @@
+.success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.success-box {
+  background: #e6d8b5;
+  border: 1px dashed #bda77a;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 500px;
+}
+
+.success-box h1 {
+  color: #3f4f1f;
+  margin-bottom: 20px;
+}
+
+.success-box p {
+  margin-bottom: 25px;
+}
+
+.home-btn {
+  background: #5d7a2f;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.home-btn:hover {
+  background: #4a6226;
+}
