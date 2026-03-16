@@ -21,7 +21,7 @@ const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container text-white">
-        <img src="img/favicon-max.png" width="60px" alt="" />
+        <img src="/img/favicon-max.png" width="60px" alt="" />
 
         <Link to="/" className="navbar-brand">
           MAXIMALNO ULJE - Snaga iz zemlje

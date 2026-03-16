@@ -20,6 +20,9 @@ const Naslovnica = () => {
   const match = page.content.rendered.match(/<img[^>]+src="([^">]+)"/);
   const heroImage = match ? match[1] : "";
 
+  // helper za slike iz public/img
+  const img = (name) => process.env.PUBLIC_URL + "/img/" + name;
+
   return (
     <div className="naslovnica">
       <div className="hero" style={{ backgroundImage: `url(${heroImage})` }}>
@@ -33,13 +36,13 @@ const Naslovnica = () => {
         </div>
       </div>
 
-      {/* O NAMA - 2 diva */}
+      {/* O NAMA */}
 
       <section className="about-section">
         <div className="about-row">
           <Link to="/onama" className="card">
             <div className="about-img">
-              <img src="img/hero3.png" alt="O nama" />
+              <img src={img("hero3.png")} alt="O nama" />
             </div>
             <h2>O nama</h2>
             <p>
@@ -50,7 +53,7 @@ const Naslovnica = () => {
 
           <Link to="/onama" className="card">
             <div className="about-img">
-              <img src="img/berba1.jpg" alt="O nama" />
+              <img src={img("berba1.jpg")} alt="O nama" />
             </div>
             <h2>Naša priča</h2>
             <p>Naše ulje nastaje tamo gdje zemlja još miriše na prirodu...</p>
@@ -58,7 +61,7 @@ const Naslovnica = () => {
         </div>
       </section>
 
-      {/* PROIZVODI*/}
+      {/* PROIZVODI */}
 
       <section className="proizvodi-section">
         <h2 className="proizvodi-title">PROIZVODI</h2>
@@ -67,7 +70,7 @@ const Naslovnica = () => {
           <div className="card">
             <Link to="/proizvodi">
               <div className="product-img">
-                <img src="img/staklenka025.jpeg" alt="staklenka025" />
+                <img src={img("staklenka025.jpeg")} alt="staklenka025" />
               </div>
             </Link>
 
@@ -80,7 +83,7 @@ const Naslovnica = () => {
           <div className="card">
             <Link to="/proizvodi">
               <div className="product-img">
-                <img src="img/staklenka0.5l.png" alt="staklenka0.5l" />
+                <img src={img("staklenka0.5l.png")} alt="staklenka0.5l" />
               </div>
             </Link>
 
@@ -93,7 +96,7 @@ const Naslovnica = () => {
           <div className="card">
             <Link to="/proizvodi">
               <div className="product-img">
-                <img src="img/staklenkaduozel.png" alt="staklenkaduozel" />
+                <img src={img("staklenkaduozel.png")} alt="staklenkaduozel" />
               </div>
             </Link>
 
@@ -106,6 +109,7 @@ const Naslovnica = () => {
       </section>
 
       {/* BLOG */}
+
       <section className="blogs-section">
         <div className="torn-divider"></div>
 
@@ -117,7 +121,7 @@ const Naslovnica = () => {
               to="/blog/nasa-berba-kako-izgleda-sezona-maslinarstva/"
               className="blog-card"
             >
-              <img src="img/blog10b.jpg" alt="" />
+              <img src={img("blog10b.jpg")} alt="" />
               <h3>Naša berba - Zlatna kap ulja</h3>
 
               <Button>Pročitaj više...</Button>
@@ -127,14 +131,14 @@ const Naslovnica = () => {
               to="/blog/kako-prepoznati-kvalitetu-ulja/"
               className="blog-card"
             >
-              <img src="img/blog7b.jpg" alt="" />
+              <img src={img("blog7b.jpg")} alt="" />
               <h3>Kako prepoznati kvalitetu ulja</h3>
 
               <Button>Pročitaj više...</Button>
             </Link>
 
-            <Link to="/blog/recepti-sa-maslinovim-uljem" class="blog-card">
-              <img src="img/blog3.jpg" alt="" />
+            <Link to="/blog/recepti-sa-maslinovim-uljem" className="blog-card">
+              <img src={img("blog3.jpg")} alt="" />
               <h3>Recepti s Maslinovim Uljem</h3>
 
               <Button>Pročitaj više...</Button>
@@ -142,6 +146,8 @@ const Naslovnica = () => {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 };
