@@ -3,18 +3,18 @@
   background-color: #d8c8a6;
   background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
   background-size: 6px 6px;
-  padding: 8rem 0 4rem 0;
+  padding: 6rem 0 4rem 0;
   min-height: 100vh;
 }
 
 /* širina stranice */
-
 .proizvodi > div {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
+/* UVOD */
 .uvod {
   text-align: center;
   margin-bottom: 90px;
@@ -22,11 +22,11 @@
 }
 
 .uvod p {
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
 .uvod p:first-child {
-  font-size: 1.45rem;
+  font-size: 1.6rem;
   font-weight: 700;
 }
 
@@ -36,12 +36,18 @@
   font-weight: 500;
 }
 
-/* GRID */
+/* GRID PROIZVODA */
 .proizvodi .wp-block-columns {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 60px;
-  row-gap: 100px;
+  grid-template-columns: repeat(3, minmax(320px, 340px));
+  justify-content: center;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  column-gap: 80px;
+  row-gap: 110px;
 }
 
 /* KARTICA */
@@ -50,18 +56,18 @@
   overflow: hidden;
   background: #efe2c4;
   border-radius: 22px;
-  padding: 2.5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  min-height: 480px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  min-height: 520px;
+  width: 100%;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.35s ease;
-  animation: fadeIn 0.9s ease forwards;
 }
 
 .proizvodi .wp-block-column:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 /* SHINE EFEKT */
@@ -94,10 +100,10 @@
 
 .proizvodi .wp-block-image img {
   width: 100%;
-  height: 320px;
+  height: 300px;
   object-fit: cover;
   border-radius: 18px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   transition: transform 0.5s ease;
 }
 
@@ -115,6 +121,7 @@
   font-family: Georgia, serif;
 }
 
+/* CIJENA */
 .cijena {
   font-weight: 700;
   text-align: center;
@@ -127,26 +134,30 @@
   margin-top: auto;
   display: flex;
   justify-content: center;
-  border: 8px;
+  align-self: center;
 }
 
 .proizvodi .wp-block-button__link {
-  padding: 14px 40px;
-  min-width: 180px;
-  border-radius: 6px;
+  padding: 16px 42px;
+  min-width: 200px;
+  border-radius: 8px;
   color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-  border: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
+  background: #5c7c24;
   transition: all 0.25s ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 .proizvodi .wp-block-button__link:hover {
-  transform: translateY(-2px);
-  border: 8px solid;
+  background: #4e6c1f;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
 }
 
+/* DOSTAVA */
 .dostava {
   text-align: center;
   margin-top: 80px;
@@ -157,9 +168,9 @@
   font-size: 1.2rem;
 }
 
-.dostava p h1 {
+.dostava p {
   margin: 10px 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .slogan {
@@ -175,15 +186,12 @@
   font-weight: 600;
 }
 
+/* LOGO */
 .logo-dno {
   display: block;
   margin: 40px auto;
   width: 300px;
-
-  /*poboljšanje slike */
   filter: contrast(120%) brightness(96%) saturate(105%);
-
-  /* glow iza loga */
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 0.45) 0%,
@@ -191,31 +199,18 @@
     transparent 70%
   );
   padding: 10px;
-
-  /* lagana dubina */
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .logo-dno:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
   filter: contrast(130%) brightness(98%) saturate(105%);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
-/* FADE IN */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* POPUP */
 .cart-popup {
   position: fixed;
   bottom: 40px;
@@ -235,7 +230,6 @@
     opacity: 0;
     transform: translateY(20px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
@@ -243,16 +237,19 @@
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 1100px) {
   .proizvodi .wp-block-columns {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 340px);
   }
 }
 
 @media (max-width: 768px) {
   .proizvodi .wp-block-columns {
     grid-template-columns: 1fr;
+  }
+
+  .proizvodi .wp-block-column {
+    width: 100%;
   }
 
   .uvod {

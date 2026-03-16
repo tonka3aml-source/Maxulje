@@ -1,7 +1,7 @@
 .kosarica {
   min-height: 70vh;
   margin: 140px auto 160px auto;
-  padding: 70px 50px;
+  padding: 70px 60px;
   max-width: 1000px;
   background: linear-gradient(180deg, #d8c9a6, #d2c097);
   border-radius: 16px;
@@ -23,39 +23,31 @@
 
 .kosarica h1 {
   text-align: center;
-  margin-bottom: 50px;
-  font-size: 38px;
+  margin-bottom: 55px;
+  font-size: 40px;
   color: #2e3d1f;
 }
 
+/* ITEM */
 .kosarica-item {
   display: grid;
   grid-template-columns: 1fr auto;
-  align-items: start;
-  padding: 26px 12px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  gap: 20px;
-  transition: 0.25s;
-}
-
-.actions {
-  display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 4px;
+  padding: 28px 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: 0.25s;
 }
 
 .kosarica-item:hover {
   background: rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   transform: scale(1.01);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .kosarica-item h3 {
@@ -70,126 +62,103 @@
   color: #444;
 }
 
+/* ACTIONS */
 .actions {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 10px;
+  gap: 22px;
 }
 
+/* KOLIČINA */
 .qty {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
-
-.qty button,
-.qty span {
-  width: 46px;
-  height: 46px;
-
-  display: grid;
-  place-items: center;
-  font-family: inherit;
-  line-height: 1;
-}
-
-/* minus plus */
 
 .qty button {
+  width: 34px;
+  height: 34px;
   border: none;
-  border-radius: 8px;
-
-  background: linear-gradient(180deg, #6b8e23, #556b1f);
-  color: white;
-  align-content: center;
-  justify-content: center;
-
-  font-size: 22px;
-  font-weight: 700;
-
+  border-radius: 6px;
+  background: #e5d6b4;
+  color: #2e3d1f;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: 0.2s;
-
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .qty button:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  background: #d9c89f;
+  transform: translateY(-2px);
 }
-
-/* broj */
 
 .qty span {
-  background: #4c6335;
-  color: white;
-
-  border-radius: 50%;
-  font-weight: 700;
-  font-size: 17px;
-
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
+  min-width: 24px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 25px;
+  color: #2e3d1f;
+  margin-top: auto;
 }
 
+/* REMOVE */
 .remove-btn {
-  padding: 10px 18px;
-
+  padding: 9px 18px;
   background: #9c3b2e;
   color: white;
-
   border: none;
   border-radius: 8px;
-
   cursor: pointer;
   transition: 0.25s;
-
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .remove-btn:hover {
   background: #7f2e23;
   transform: translateY(-2px);
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25);
 }
 
+/* TOTAL */
 .kosarica-total {
   margin-top: 40px;
-  padding-top: 20px;
+  padding-top: 25px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   text-align: right;
 }
 
 .kosarica-total h2 {
-  font-size: 26px;
+  font-size: 28px;
   color: #2e3d1f;
 }
 
+/* CHECKOUT */
 .checkout-btn {
-  margin-top: 30px;
-  padding: 16px 30px;
-
+  margin-top: 25px;
+  padding: 16px 32px;
   background: linear-gradient(180deg, #6b8e23, #556b1f);
-
   color: white;
   border: none;
-  border-radius: 8px;
-
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
-
   display: block;
   margin-left: auto;
-
   transition: 0.25s;
-
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 .checkout-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* RESPONSIVE */
@@ -197,10 +166,6 @@
   .kosarica {
     padding: 50px 25px;
     margin: 120px 15px 140px 15px;
-  }
-
-  .kosarica h1 {
-    font-size: 32px;
   }
 
   .actions {
@@ -214,21 +179,5 @@
 
   .checkout-btn {
     width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  .kosarica {
-    padding: 40px 20px;
-  }
-
-  .kosarica h1 {
-    font-size: 28px;
-  }
-
-  .qty button,
-  .qty span {
-    width: 42px;
-    height: 42px;
   }
 }

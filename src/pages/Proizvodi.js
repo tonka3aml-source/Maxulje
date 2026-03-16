@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import Loader from "../pages/Loader";
 import "./Proizvodi.css";
 import { CartContext } from "../components/CartContext";
+import Button from "../components/Button";
 
 function Proizvodi() {
   const [proizvodi, setProizvodi] = useState([]);
@@ -30,8 +31,6 @@ function Proizvodi() {
     fetchProizvodi();
   }, []);
 
-  /* ADD TO CART */
-
   function addToCart(proizvod) {
     addToCartContext({
       id: proizvod.id,
@@ -56,13 +55,11 @@ function Proizvodi() {
 
         <div className="uvod">
           <p>Prirodno. Čisto. S našeg imanja.</p>
-
           <p>Naš asortiman je mali, ali iskren.</p>
-
           <p>Sve što nudimo sami proizvodimo, punimo i pakiramo.</p>
         </div>
 
-        {/* GRID PROIZVODA */}
+        {/* GRID */}
 
         <div className="wp-block-columns">
           {proizvodi.map((p) => {
@@ -84,12 +81,7 @@ function Proizvodi() {
                 <p className="cijena">{cijena} €</p>
 
                 <div className="wp-block-buttons">
-                  <button
-                    className="wp-block-button__link"
-                    onClick={() => addToCart(p)}
-                  >
-                    U košaricu
-                  </button>
+                  <Button onClick={() => addToCart(p)}>U košaricu</Button>
                 </div>
               </div>
             );
