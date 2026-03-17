@@ -22,12 +22,21 @@ const Narudzba = () => {
 
     setLoading(true);
 
+    // ZA ISPIT
+    //  NORMALNO: false
+    //  ZA ERROR: U true
+    const simulateError = false;
+
     setTimeout(() => {
-      // očisti košaricu
+      if (simulateError) {
+        // ❌ ide na error stranicu
+        navigate("/error");
+        return;
+      }
+
+      // ✅ uspješna narudžba
       localStorage.removeItem("cart");
       setCart([]);
-
-      // redirect na success stranicu
       navigate("/success");
     }, 1200);
   };

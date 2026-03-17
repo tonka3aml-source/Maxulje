@@ -15,6 +15,7 @@ import Kontakt from "./pages/Kontakt";
 import Narudzba from "./pages/Narudzba";
 import { CartProvider } from "./components/CartContext";
 import Success from "./components/Success";
+import ErrorPage from "./components/Error";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
             <Route path="/kontakt" element={<Kontakt />} />
             <Route path="/narudzba" element={<Narudzba />} />
             <Route path="/success" element={<Success />} />
+            <Route path="/error" element={<ErrorPage />} />
           </Routes>
         </main>
 
