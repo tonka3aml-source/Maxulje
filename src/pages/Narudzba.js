@@ -58,6 +58,11 @@ const Narudzba = () => {
         ))}
 
         <h3>Ukupno: {ukupno} €</h3>
+
+        <div className="dostava-info">
+          <p>🚚 Besplatna dostava za narudžbe iznad 20 €</p>
+          <p>Dostava 3 € za narudžbe ispod 20 €</p>
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>

@@ -131,6 +131,21 @@ button:hover {
     0 0 10px rgba(107, 142, 35, 0.35);
 }
 
+.dostava-info {
+  margin-top: 15px;
+  background: #e6d8b5; /* isto kao success */
+  border: 1px dashed #bda77a;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  color: #3f4f1f;
+}
+
+.dostava-info p {
+  margin: 5px 0;
+}
+
 /*   RESPONSIVE */
 
 @media (max-width: 768px) {
