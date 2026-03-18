@@ -11,7 +11,7 @@ const Footer = () => {
         <p>© 2026 Maslinovo Ulje — Tradicija i kvaliteta</p>
 
         <div className="footer-links">
-          <Link to="/about">About Us</Link>
+          <Link to="/onama">O nama</Link>
           <Link to="/blog">Blog</Link>
           <Link to="/kontakt">Kontakt</Link>
         </div>

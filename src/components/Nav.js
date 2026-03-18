@@ -11,6 +11,9 @@ const Nav = () => {
 
   const brojProizvoda = cart.reduce((sum, item) => sum + item.kolicina, 0);
 
+  // ✅ helper za slike (kao u Naslovnici)
+  const img = (name) => process.env.PUBLIC_URL + "/img/" + name;
+
   useEffect(() => {
     const user = localStorage.getItem("username");
     if (user) setName(user);
@@ -21,7 +24,8 @@ const Nav = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <div className="container text-white">
-        <img src="/img/favicon-max.png" width="60px" alt="" />
+        {/* ✅ IKONICA */}
+        <img src={img("favicon-max.png")} width="40" alt="logo" />
 
         <Link to="/" className="navbar-brand">
           MAXIMALNO ULJE - Snaga iz zemlje
