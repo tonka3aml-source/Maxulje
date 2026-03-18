@@ -1,12 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Loader from "../pages/Loader";
 import "./Naslovnica.css";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import { CartContext } from "../components/CartContext";
 
 const Naslovnica = () => {
   const [page, setPage] = useState(null);
+  const [popup, setPopup] = useState("");
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     fetch(`https://front2.edukacija.online/backend/wp-json/wp/v2/pages/27`)
@@ -20,8 +24,24 @@ const Naslovnica = () => {
   const match = page.content.rendered.match(/<img[^>]+src="([^">]+)"/);
   const heroImage = match ? match[1] : "";
 
-  // helper za slike iz public/img
+  // helper za slike - kod refresha neće se izgubiti
   const img = (name) => process.env.PUBLIC_URL + "/img/" + name;
+
+  //  ADD TO CART (napravila kao u proizvodima)
+  function handleAdd(naziv, cijena, slika) {
+    addToCart({
+      id: Date.now(),
+      naziv,
+      cijena,
+      slika,
+    });
+
+    setPopup(naziv);
+
+    setTimeout(() => {
+      setPopup("");
+    }, 2000);
+  }
 
   return (
     <div className="naslovnica">
@@ -77,7 +97,13 @@ const Naslovnica = () => {
             <h3 className="product-title">Staklenka 0.25L</h3>
             <p className="product-price">6 €</p>
 
-            <Button>U košaricu</Button>
+            <Button
+              onClick={() =>
+                handleAdd("Staklenka 0.25L", 6, img("staklenka025.jpeg"))
+              }
+            >
+              U košaricu
+            </Button>
           </div>
 
           <div className="card">
@@ -90,7 +116,13 @@ const Naslovnica = () => {
             <h3 className="product-title">Staklenka 0.50 L</h3>
             <p className="product-price">10 €</p>
 
-            <Button>U košaricu</Button>
+            <Button
+              onClick={() =>
+                handleAdd("Staklenka 0.50 L", 10, img("staklenka0.5l.png"))
+              }
+            >
+              U košaricu
+            </Button>
           </div>
 
           <div className="card">
@@ -103,7 +135,13 @@ const Naslovnica = () => {
             <h3 className="product-title">Poklon paket</h3>
             <p className="product-price">20 €</p>
 
-            <Button>U košaricu</Button>
+            <Button
+              onClick={() =>
+                handleAdd("Poklon paket", 20, img("staklenkaduozel.png"))
+              }
+            >
+              U košaricu
+            </Button>
           </div>
         </div>
       </section>
@@ -123,7 +161,6 @@ const Naslovnica = () => {
             >
               <img src={img("blog10b.jpg")} alt="" />
               <h3>Naša berba - Zlatna kap ulja</h3>
-
               <Button>Pročitaj više...</Button>
             </Link>
 
@@ -133,21 +170,20 @@ const Naslovnica = () => {
             >
               <img src={img("blog7b.jpg")} alt="" />
               <h3>Kako prepoznati kvalitetu ulja</h3>
-
               <Button>Pročitaj više...</Button>
             </Link>
 
             <Link to="/blog/recepti-sa-maslinovim-uljem" className="blog-card">
               <img src={img("blog3.jpg")} alt="" />
               <h3>Recepti s Maslinovim Uljem</h3>
-
               <Button>Pročitaj više...</Button>
             </Link>
           </div>
         </div>
       </section>
 
-      <Footer />
+      {/* ✅ POPUP */}
+      {popup && <div className="cart-popup">✓ Dodano: {popup}</div>}
     </div>
   );
 };

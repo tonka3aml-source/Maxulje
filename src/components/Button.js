@@ -10,8 +10,18 @@ function Button({ children, to, type = "button", disabled, onClick }) {
     );
   }
 
+  const handleClick = (e) => {
+    e.stopPropagation(); // 🔥 sprječava da klik ode na parent Link
+    if (onClick) onClick(e);
+  };
+
   return (
-    <button type={type} className="btn" disabled={disabled} onClick={onClick}>
+    <button
+      type={type}
+      className="btn"
+      disabled={disabled}
+      onClick={handleClick}
+    >
       {children}
     </button>
   );
